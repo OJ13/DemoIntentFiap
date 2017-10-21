@@ -1,11 +1,17 @@
 package br.com.osmarjunior.demointent;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import br.com.osmarjunior.demointent.broadcastreceiver.AlarmeReceiver;
 import br.com.osmarjunior.demointent.utils.Constantes;
 
 public class MainActivity extends AppCompatActivity {
@@ -52,5 +58,21 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putInt(Constantes.KEY_PLACAR_CASA, placarHome);
         outState.putInt(Constantes.KEY_PLACAR_VISITANTE, placarVisitante);
+    }
+
+    public void programarAlarme(View v){
+        EditText text = (EditText)findViewById(R.id.etTempoJogo);
+        int i = Integer.parseInt(text.getText().toString());
+
+        Intent intent = new Intent(this, AlarmeReceiver.class);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                this.getApplicationContext(),0,intent,0);
+
+        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP,
+                System.currentTimeMillis() + (i * 1000),
+                pendingIntent);
+        Toast.makeText(this, "Alarm set in " + i + "seconds", Toast.LENGTH_LONG).show();
     }
 }
