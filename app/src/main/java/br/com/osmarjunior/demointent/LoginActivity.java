@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         validaLogin.putExtra(Constantes.KEY_SENHA,
                 etSenha.getText().toString());
 
-        startActivityForResult(validaLogin, Constantes.REQUEST_CODE_VALIDA_LOGIN);
+        startActivityForResult(validaLogin, Constantes.REQUEST_CODE_VALIDA_LOGIN); //Inicia uma activity, e espera pra um retorno
     }
 
     @Override
