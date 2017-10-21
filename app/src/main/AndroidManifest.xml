@@ -23,6 +23,8 @@
             </intent-filter>
         </receiver>
         <receiver android:name=".broadcastreceiver.AlarmeReceiver"></receiver>
+
+        <service android:name=".services.BoundService"></service>
     </application>
 
 </manifest>

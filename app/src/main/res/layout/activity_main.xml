@@ -108,4 +108,11 @@
         android:layout_height="wrap_content"
         android:onClick="programarAlarme"
         android:text="Programar Alarme" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTempoAtual"
+        android:gravity="center"
+        android:textSize="30dp"
+        />
 </LinearLayout>

@@ -14,4 +14,6 @@ public class Constantes {
 
     public final static String KEY_PLACAR_CASA = "KEY_PLACAR_CASA";
     public final static String KEY_PLACAR_VISITANTE = "KEY_PLACAR_VISITANTE";
+
+    public final static String LOG_TAG = "BoundService";
 }
